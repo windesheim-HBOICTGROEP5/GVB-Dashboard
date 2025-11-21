@@ -9,17 +9,73 @@
             InitializeComponent();
         }
 
-        //private void OnCounterClicked(object sender, EventArgs e)
-        //{
-        //    count++;
+        // Dashboard
+        private void OnDashboardTapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Navigation", "Dashboard clicked", "OK");
+        }
 
-        //    if (count == 1)
-        //        CounterBtn.Text = $"Clicked {count} time";
-        //    else
-        //        CounterBtn.Text = $"Clicked {count} times";
+        // Reports Dropdown
+        private void OnReportsToggled(object sender, EventArgs e)
+        {
+            ToggleDropdown(ReportsDropdown, ReportsArrow, ReportsHeader);
+        }
 
-        //    SemanticScreenReader.Announce(CounterBtn.Text);
-        //}
+        private void OnSalesReportTapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Navigation", "Sales Report clicked", "OK");
+        }
+
+        private void OnAnalyticsTapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Navigation", "Analytics clicked", "OK");
+        }
+
+        private void OnExportsTapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Navigation", "Exports clicked", "OK");
+        }
+
+        // Settings Dropdown
+        private void OnSettingsToggled(object sender, EventArgs e)
+        {
+            ToggleDropdown(SettingsDropdown, SettingsArrow, SettingsHeader);
+        }
+
+        private void OnProfileTapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Navigation", "Profile clicked", "OK");
+        }
+
+        private void OnPreferencesTapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Navigation", "Preferences clicked", "OK");
+        }
+
+        // Help
+        private void OnHelpTapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Navigation", "Help clicked", "OK");
+        }
+
+        // Helper methode voor de animatie
+        private async void ToggleDropdown(VerticalStackLayout dropdown, Label arrow, Border header)
+        {
+            if (dropdown.IsVisible)
+            {
+                // Close dropdown
+                await arrow.RotateTo(0, 200);
+                dropdown.IsVisible = false;
+                header.BackgroundColor = Colors.Transparent;
+            }
+            else
+            {
+                // Open dropdown
+                await arrow.RotateTo(180, 200);
+                dropdown.IsVisible = true;
+                header.BackgroundColor = Color.FromArgb("#0081BA");
+            }
+        }
     }
 
 }
