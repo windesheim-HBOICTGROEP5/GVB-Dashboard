@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled"
     BackgroundColor="#FFFFFF">
 
-    <Shell.TitleView>
+    <!--Shell.TitleView>
         <Grid>
             <Image Source="gvb.png"
                    Aspect="AspectFit"
@@ -20,7 +20,7 @@
                    HorizontalOptions="End"
                    Margin="0,0,10,0" />
         </Grid>
-    </Shell.TitleView>
+    </Shell.TitleView-->
 
     <ShellContent
         Title="GVB-metrolijnnen"
