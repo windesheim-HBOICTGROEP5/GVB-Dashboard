@@ -217,7 +217,7 @@
                 </ScrollView>
             </Border>
 
-            <!-- RECHTER CONTENT -->
+            <!-- Rechter content gebied -->
             <Border Grid.Column="1"
                     BackgroundColor="#0863B5"
                     Padding="10">
@@ -226,14 +226,43 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
+                    
+                    <!-- Linker Content met dropdown + foto -->
                     <Border Grid.Column="0"
-                            Background="White">
+                            Background="White"
+                            Padding="20">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20" />
                         </Border.StrokeShape>
-                    </Border>
 
+                        <Grid RowDefinitions="Auto, *">
+                            <!--Dropdown bovenin voor de foto selectie-->
+                            <Picker x:Name="Kaart"
+                                    Title="Kies metro lijn"
+                                    SelectedIndexChanged="OnLeftPhotoSelected"
+                                    BackgroundColor="#009ee3"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Start">
+                                <Picker.Items>
+                                    <x:String>Alle Metro lijnen</x:String>
+                                    <x:String>Metro lijn 50</x:String>
+                                    <x:String>Metro lijn 51</x:String>
+                                    <x:String>Metro lijn 52</x:String>
+                                    <x:String>Metro lijn 53</x:String>
+                                    <x:String>Metro lijn 54</x:String>
+                                </Picker.Items>
+                            </Picker>
+
+                            <!--gekozen foto eronder-->
+                            <Image Grid.Row="1"
+                                   x:Name="LeftSelectedImage"
+                                   Aspect="AspectFit"
+                                    
+                                   BackgroundColor="White"
+                                   Margin="0,20,0,00" />
+                        </Grid>
+                    </Border>
+                    <!-- Rechter Wit vak-->
                     <Border Grid.Column="1"
                             Background="White">
                         <Border.StrokeShape>
