@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xGVB_Dashboard.app.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- CUSTOM TITLE BAR (voorheen Shell.TitleView) -->
+        <Grid BackgroundColor="White"
+              HeightRequest="40"
+              Padding="10,0"
+              VerticalOptions="Start">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Links: logo -->
+            <Image Source="gvb.png"
+                   Aspect="AspectFit"
+                   HeightRequest="40"
+                   HorizontalOptions="Start" />
+
+            <!-- Rechts: user icon -->
+            <Image Source="user.png"
+                   Grid.Column="1"
+                   Aspect="AspectFit"
+                   HeightRequest="40"
+                   HorizontalOptions="End" />
+        </Grid>
+
+        <!-- HOOFD-INHOUD VAN DE PAGINA -->
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- LINKER ZIJBALK -->
+            <Border Grid.Column="0" 
+                    BackgroundColor="#009EE3">
+                <ScrollView>
+                    <VerticalStackLayout Spacing="0" Padding="0">
+
+                        <!-- Dashboard Menu Item -->
+                        <Border>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnDashboardTapped"/>
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout Padding="20,15" Spacing="15">
+                                <Label Text="📊" FontSize="20"/>
+                                <Label Text="Dashboard" 
+                                       TextColor="White"
+                                       FontSize="16"
+                                       VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+
+                        <!-- Reports Dropdown -->
+                        <VerticalStackLayout Spacing="0">
+                            <Border x:Name="ReportsHeader">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnReportsToggled"/>
+                                </Border.GestureRecognizers>
+                                <HorizontalStackLayout Padding="20,15" Spacing="15">
+                                    <Label Text="📈" FontSize="20"/>
+                                    <Label Text="Reports" 
+                                           TextColor="White"
+                                           FontSize="16"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start"/>
+                                    <Label Text="▼" 
+                                           x:Name="ReportsArrow"
+                                           TextColor="White"
+                                           FontSize="12"
+                                           VerticalOptions="Center"/>
+                                </HorizontalStackLayout>
+                            </Border>
+
+                            <!-- Dropdown Items -->
+                            <VerticalStackLayout x:Name="ReportsDropdown" 
+                                                 IsVisible="False"
+                                                 Spacing="0">
+                                <Border>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnSalesReportTapped"/>
+                                    </Border.GestureRecognizers>
+                                    <Grid ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.3*"/>
+                                            <ColumnDefinition Width="10*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <BoxView Grid.Column="0" Color="#0863B5"/>
+                                        <Label Grid.Column="1" 
+                                               Text="Sales Report" 
+                                               TextColor="White"
+                                               Padding="15,12"
+                                               FontSize="14"/>
+                                    </Grid>
+                                </Border>
+                                <Border>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnAnalyticsTapped"/>
+                                    </Border.GestureRecognizers>
+                                    <Grid ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.3*"/>
+                                            <ColumnDefinition Width="10*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <BoxView Grid.Column="0" Color="#0863B5"/>
+                                        <Label Grid.Column="1" 
+                                               Text="Analytics" 
+                                               TextColor="White"
+                                               Padding="15,12"
+                                               FontSize="14"/>
+                                    </Grid>
+                                </Border>
+                                <Border>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnExportsTapped"/>
+                                    </Border.GestureRecognizers>
+                                    <Grid ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.3*"/>
+                                            <ColumnDefinition Width="10*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <BoxView Grid.Column="0" Color="#0863B5"/>
+                                        <Label Grid.Column="1" 
+                                               Text="Exports" 
+                                               TextColor="White"
+                                               Padding="15,12"
+                                               FontSize="14"/>
+                                    </Grid>
+                                </Border>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+
+                        <!-- Settings Dropdown -->
+                        <VerticalStackLayout Spacing="0">
+                            <Border x:Name="SettingsHeader">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSettingsToggled"/>
+                                </Border.GestureRecognizers>
+                                <HorizontalStackLayout Padding="20,15" Spacing="15">
+                                    <Label Text="⚙️" FontSize="20"/>
+                                    <Label Text="Settings" 
+                                           TextColor="White"
+                                           FontSize="16"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start"/>
+                                    <Label Text="▼" 
+                                           x:Name="SettingsArrow"
+                                           TextColor="White"
+                                           FontSize="12"
+                                           VerticalOptions="Center"/>
+                                </HorizontalStackLayout>
+                            </Border>
+
+                            <!-- Dropdown Items -->
+                            <VerticalStackLayout x:Name="SettingsDropdown" 
+                                                 IsVisible="False"
+                                                 Spacing="0">
+                                <Border>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnProfileTapped"/>
+                                    </Border.GestureRecognizers>
+                                    <Grid ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.3*"/>
+                                            <ColumnDefinition Width="10*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <BoxView Grid.Column="0" Color="#0863B5"/>
+                                        <Label Grid.Column="1" 
+                                               Text="Profile" 
+                                               TextColor="White"
+                                               Padding="15,12"
+                                               FontSize="14"/>
+                                    </Grid>
+                                </Border>
+                                <Border>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnPreferencesTapped"/>
+                                    </Border.GestureRecognizers>
+                                    <Grid ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.3*"/>
+                                            <ColumnDefinition Width="10*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <BoxView Grid.Column="0" Color="#0863B5"/>
+                                        <Label Grid.Column="1" 
+                                               Text="Preferences" 
+                                               TextColor="White"
+                                               Padding="15,12"
+                                               FontSize="14"/>
+                                    </Grid>
+                                </Border>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+
+                        <!-- Help Menu Item -->
+                        <Border>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnHelpTapped"/>
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout Padding="20,15" Spacing="15">
+                                <Label Text="❓" FontSize="20"/>
+                                <Label Text="Help" 
+                                       TextColor="White"
+                                       FontSize="16"
+                                       VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Border>
+
+            <!-- Rechter content gebied -->
+            <Border Grid.Column="1"
+                    BackgroundColor="#0863B5"
+                    Padding="10">
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Linker Content met dropdown + foto -->
+                    <Border Grid.Column="0"
+                            Background="White"
+                            Padding="20">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+
+                        <Grid RowDefinitions="Auto, *">
+                            <!--Dropdown bovenin voor de foto selectie-->
+                            <Picker x:Name="Kaart"
+                                    Title="Kies metro lijn"
+                                    SelectedIndexChanged="OnLeftPhotoSelected"
+                                    BackgroundColor="#009ee3"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Start">
+                                <Picker.Items>
+                                    <x:String>Alle Metro lijnen</x:String>
+                                    <x:String>Metro lijn 50</x:String>
+                                    <x:String>Metro lijn 51</x:String>
+                                    <x:String>Metro lijn 52</x:String>
+                                    <x:String>Metro lijn 53</x:String>
+                                    <x:String>Metro lijn 54</x:String>
+                                </Picker.Items>
+                            </Picker>
+
+                            <!--gekozen foto eronder-->
+                            <Image Grid.Row="1"
+                                   x:Name="LeftSelectedImage"
+                                   Aspect="AspectFit"
+                                    
+                                   BackgroundColor="White"
+                                   Margin="0,20,0,00" />
+                        </Grid>
+                    </Border>
+                    <!-- Rechter Wit vak-->
+                    <Border Grid.Column="1"
+                            Background="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                    </Border>
+                </Grid>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>
