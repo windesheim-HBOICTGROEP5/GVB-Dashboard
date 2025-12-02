@@ -1,0 +1,109 @@
+# .gitignore template for .NET MAUI projects
+# Based on Visual Studio / .NET templates with MAUI-specific entries
+
+# Build outputs
+bin/
+obj/
+artifacts/
+
+# Publish and intermediate outputs
+publish/
+*.app
+*.ipa
+*.apk
+*.aab
+*.msix
+
+# Native debug symbols and packaging
+*.dSYM/
+*.pdb
+*.mdb
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.rsuser
+*.vcxproj.user
+*.sln.docstates
+
+# Visual Studio workspace
+/.vs/
+
+# VSCode workspace
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# NuGet packages and caches
+*.nupkg
+**/packages/*
+!**/packages/build/
+project.lock.json
+project.fragment.lock.json
+
+# Dotnet local tools and caches
+.dotnet/
+.dotnetwatch/
+
+# MAUI / Mobile specific
+# Android
+**/Platforms/Android/obj/
+**/Platforms/Android/bin/
+**/bin/**/android/**
+**/obj/**/android/**
+**/*.keystore
+**/*.jks
+
+# iOS
+**/Platforms/iOS/obj/
+**/Platforms/iOS/bin/
+**/bin/**/ios/**
+**/obj/**/ios/**
+*.mobileprovision
+*.p12
+
+# MacCatalyst / Mac
+**/Platforms/MacCatalyst/obj/
+**/Platforms/MacCatalyst/bin/
+**/Platforms/Mac/obj/
+**/Platforms/Mac/bin/
+
+# Windows
+**/Platforms/Windows/obj/
+**/Platforms/Windows/bin/
+
+# Maui single-project outputs
+**/bin/**
+**/obj/**
+
+# Bundle / intermediate files
+*.appx
+*.appxbundle
+
+# Signing and credentials
+*.pfx
+*.snk
+
+# Android gradle artifacts / caches
+/.gradle/
+**/.gradle/
+**/.gradle/**
+
+# JetBrains Rider local history
+.idea/**/localHistory
+
+# Logs and databases
+*.log
+*.db
+
+# Temporary files
+Thumbs.db
+Desktop.ini
+
+# IDE specific caches
+/.vscode/
+
+# End of MAUI template

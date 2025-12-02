@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("xGVB-Dashboard.app")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+18cc68d8807fabca2d9af8dae5bfd3000fa6d42b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+a6539c6d016a5117bf230b07822fa74f472d5f2b")]
 [assembly: System.Reflection.AssemblyProductAttribute("xGVB-Dashboard.app")]
 [assembly: System.Reflection.AssemblyTitleAttribute("xGVB-Dashboard.app")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
